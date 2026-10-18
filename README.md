@@ -26,7 +26,7 @@ A Self-RAG assistant built with Python, Gemini, ChromaDB, and LangGraph.
    python -m pip install -r requirements.txt
    ```
 
-3. Create a `.env` file in the project root:
+3. Copy `.env.example` to `.env` in the project root and add your key:
 
    ```dotenv
    GEMINI_API_KEY=your_actual_api_key
@@ -37,6 +37,20 @@ A Self-RAG assistant built with Python, Gemini, ChromaDB, and LangGraph.
    ```bash
    python -m src.main
    ```
+
+## Project structure
+
+```
+src/
+  main.py     CLI entry point
+  graph.py    LangGraph agent (route, retrieve, grade, rewrite, generate, critique)
+  reflect.py  Gemini reflection steps (classify, grade, rewrite, critique)
+  answer.py   Answer generation
+  kb.py       ChromaDB knowledge base (created in data/chroma on first use)
+  llm.py      Gemini client with rate limiting and retries
+  config.py   Settings
+tests/        Unit tests with mocked model responses
+```
 
 ## Run tests
 
